@@ -83,7 +83,34 @@ export GEMINI_API_KEY=your_actual_api_key_here
 
 ## Usage
 
-### Option 1: Jupyter Notebook (Recommended for Exploration)
+### Option 1: Command-Line Interface (Recommended)
+
+The easiest way to process transcripts is using the command-line tool:
+
+```bash
+# Basic usage - process a transcript file
+python quickrun.py transcript.txt
+
+# Output as JSON format
+python quickrun.py transcript.txt --format json
+
+# Save results to a file
+python quickrun.py transcript.txt --output results.txt
+
+# Skip SOAP note generation (faster)
+python quickrun.py transcript.txt --no-soap
+
+# Process the sample transcript
+python quickrun.py tests/test_sample_transcript.txt
+```
+
+**Command-line Options:**
+- `filename`: Path to transcript file (required)
+- `--format {json,text}`: Output format (default: text)
+- `--output OUTPUT`: Save results to file (optional)
+- `--no-soap`: Skip SOAP note generation for faster processing
+
+### Option 2: Jupyter Notebook (Recommended for Exploration)
 
 1. Start Jupyter Notebook:
 ```bash
@@ -94,16 +121,17 @@ jupyter notebook
 
 3. Run all cells to see the complete demonstration with the sample transcript
 
-### Option 2: Python Script
+### Option 3: Python Script
 
 ```python
 import sys
 from pathlib import Path
 
-# Add src to path
-sys.path.insert(0, str(Path(__file__).parent / 'src'))
+# Add project root to path
+project_root = Path(__file__).parent
+sys.path.insert(0, str(project_root))
 
-from pipeline import PhysicianNotetakerPipeline
+from src.pipeline import PhysicianNotetakerPipeline
 
 # Initialize pipeline
 pipeline = PhysicianNotetakerPipeline()
@@ -120,7 +148,7 @@ output = pipeline.export_results(results, format_type="json")
 print(output)
 ```
 
-### Option 3: Individual Modules
+### Option 4: Individual Modules
 
 ```python
 from src.medical_ner import MedicalNER
