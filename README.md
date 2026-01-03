@@ -41,7 +41,9 @@ PhysicianNotetaker/
 ├── tests/
 │   └── test_sample_transcript.txt # Sample transcript for testing
 ├── requirements.txt
+├── .env.example
 └── README.md
+└── quickrun.py (use this to run on terminal quickly)
 ```
 
 ## Setup Instructions
