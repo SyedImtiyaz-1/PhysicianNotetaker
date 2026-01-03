@@ -4,6 +4,11 @@ Medical Transcription (NLP Based Summarization)
 
 An AI-powered system for medical transcription, NLP-based summarization, and sentiment analysis using Google's Gemini 2.5 Flash API.
 
+## Video 
+
+https://github.com/user-attachments/assets/e0d7a940-443b-4113-ac07-cb72d33f9228
+
+
 ## Features
 
 1. **Medical NLP Summarization**
